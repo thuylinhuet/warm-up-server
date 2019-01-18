@@ -7,7 +7,8 @@ router.get('/products', (req, res) => {
   productCtrl.getProductList(req, res);
 });
 
-router.get('products/:id', (req, res) => {
+router.get('/products/:id', (req, res) => {
   productCtrl.getProduct(req, res);
 })
+
 module.exports = router;
