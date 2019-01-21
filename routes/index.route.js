@@ -11,4 +11,12 @@ router.get('/products/:id', (req, res) => {
   productCtrl.getProduct(req, res);
 })
 
+router.get('/products/create', (req, res) => {
+  res.send({ message: 'create product'});
+})
+
+router.post('/products/create', (req, res) => {
+  productCtrl.createProduct(req, res);
+})
+
 module.exports = router;

@@ -25,3 +25,20 @@ module.exports.getProduct = function(req, res) {
       }
     })
 }
+
+module.exports.createProduct = function(req, res) {
+  console.log(req.body);
+  Product
+    .create({
+      "name": req.body.name,
+      "description": req.body.description,
+      "price": req.body.price,
+      "imgUrl": req.body.imgUrl
+    }, function(err, product) {
+      if (err) {
+        res.send({ code: 401, content: 'Something went wrong' + err })
+      } else {
+        res.send({ code: 200, content: 'Successfully', product: product })
+      }
+    })
+}
