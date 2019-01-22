@@ -45,11 +45,13 @@ module.exports.createProduct = function (req, res) {
 }
 
 module.exports.deleteProduct = function (req, res) {
-  let id = req.body.id;
-  let o_id = new ObjectId(id);
+  console.log(req.body._id);
+  // let id = req.body.data.id;
+  // console.log(id);
+  // let o_id = new ObjectId(id);
   Product
-    // .findByIdAndRemove(req.body.id, function(err, product) {
-    .findOneAndDelete({"_id": o_id}, function(err, product) {
+    .findByIdAndRemove(req.body._id, function(err, product) {
+    // .findOneAndDelete({"_id": o_id}, function(err, product) {
     // .deleteOne({ "_id": o_id }, function (err, product) {
       if (err) {
         res.send({ code: 401, content: 'Something went wrong' + err })
