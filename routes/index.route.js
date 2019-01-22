@@ -19,4 +19,8 @@ router.post('/products/create', (req, res) => {
   productCtrl.createProduct(req, res);
 })
 
+router.post('/products/delete', (req, res) => {
+  productCtrl.deleteProduct(req, res);
+})
+
 module.exports = router;

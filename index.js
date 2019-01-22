@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const route = require('./routes/index.route');
 const db = require('./database/db-connect');
 const cors = require('cors');
-const port = 5555;
+const port = 5001;
 
 let app = express();
 
