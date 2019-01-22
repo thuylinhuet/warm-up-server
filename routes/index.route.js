@@ -23,4 +23,7 @@ router.post('/products/delete', (req, res) => {
   productCtrl.deleteProduct(req, res);
 })
 
+router.post('/products/update', (req, res) => {
+  productCtrl.updateProduct(req, res); 
+})
 module.exports = router;

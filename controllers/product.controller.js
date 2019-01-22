@@ -46,19 +46,29 @@ module.exports.createProduct = function (req, res) {
 
 module.exports.deleteProduct = function (req, res) {
   console.log(req.body._id);
-  // let id = req.body.data.id;
-  // console.log(id);
-  // let o_id = new ObjectId(id);
   Product
     .findByIdAndRemove(req.body._id, function(err, product) {
-    // .findOneAndDelete({"_id": o_id}, function(err, product) {
-    // .deleteOne({ "_id": o_id }, function (err, product) {
       if (err) {
         res.send({ code: 401, content: 'Something went wrong' + err })
       } else {
         console.log('deleted');
         console.log(product);
         res.send({ code: 200, content: 'Deleted' })
+      }
+    })
+}
+
+module.exports.updateProduct = function(req, res) {
+  console.log(req.body);
+
+  Product
+    .findByIdAndUpdate(req.body._id, req.body, function(err, product) {
+      if (err) {
+        res.send({ code: 401, content: 'Something went wrong' + err })
+      } else {
+        console.log('updated');
+        console.log(product);
+        res.send({ code: 200, content: 'Successfully', product: product});
       }
     })
 }
